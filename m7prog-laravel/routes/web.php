@@ -2,11 +2,14 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/projects/add',[ProjectController::class, 'add'])->name('projects.add');
 
 Route::get("/test", function() {
     return view('test', ["greeting" => "Hhaskdj!"]);
