@@ -10,7 +10,7 @@ Route::get('/', function () {
 
 Route::get("/test", function() {
     return view('test', ["greeting" => "Hhaskdj!"]);
-});
+})->name('test');
 
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 

@@ -9,13 +9,20 @@
     @vite([ "resources/css/app.css", "resources/js/app.js" ])
 </head>
 <body class="bg-slate-800 h-full">
-    <nav class="flex justify-center px-2 py-4 text-white">
+    <header class="flex justify-center px-2 py-4 text-white">
         <div class="flex w-[70%] text-center">
             <div class="flex border mx-auto w-[50%] h-14 text-center items-center justify-center self-center">BANNER</div>
             <div class="flex border rounded-full cursor-pointer p-1.5 py-1 self-center select-none text-center h-fit">LOGIN</div>
         </div>
-    </nav>
-    <main class="flex items-center justify-center h-[calc(100%-6.5rem)]"><div class="flex w-[90%] h-full bg-slate-700 rounded-3xl px-2">{{ $slot }}</div></main>
-    <footer></footer>
+    </header>
+    <!-- <nav class="flex justify-evenly m-0 p-0">
+        <a class="text-indigo-500" href="{{ route('about.index') }}">About</a>
+        <a class="text-indigo-500" href="{{ route('test') }}">Test</a>
+    </nav> -->
+    <main class="flex items-center justify-center h-[calc(100%-7.5rem)]"><div class="flex w-[90%] h-full bg-slate-700 rounded-3xl px-2">{{ $slot }}</div></main>
+    <footer class="flex justify-evenly m-0 p-0">
+    <x-nav-link :href="route('test')" :active="request()->routeIs('test')">{{ __('Test') }}</x-nav-link>
+    <x-nav-link :href="route('about.index')" :active="request()->routeIs('about.index')">{{ __('About') }}</x-nav-link>
+    </footer>
 </body>
 </html>
