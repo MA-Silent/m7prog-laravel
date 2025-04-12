@@ -35,4 +35,8 @@ class ProjectController extends Controller
         $projects = DB::select('SELECT * FROM projects');
         return view('index', ['projects' => $projects, "affected"=>$affected]);
     }
+
+    public function show(Project $reqId){
+        return view('show', ['project'=>$reqId]);
+    }
 }

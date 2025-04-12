@@ -1,3 +1,3 @@
 <x-default-layout>
-    <div class="text-IDK">TEST!</div>
+    <h1>ABOUT</h1>
 </x-default-layout>

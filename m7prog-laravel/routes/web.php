@@ -18,6 +18,7 @@ Route::get("/test", function() {
 Route::get('/projects/index', [ProjectController::class, 'index'])->name('project.index');
 Route::get('/projects/update', [ProjectController::class, 'update']);
 Route::get('/projects/delete', [ProjectController::class, 'delete']);
+Route::get('/projects/{reqId}',[ProjectController::class, 'show'])->name('project.show');
 
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 
