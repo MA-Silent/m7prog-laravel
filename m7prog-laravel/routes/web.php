@@ -15,7 +15,7 @@ Route::get("/test", function() {
     return view('test', ["greeting" => "Hhaskdj!"]);
 })->name('test');
 
-Route::get('/projects/view', [ProjectController::class, 'read']);
+Route::get('/projects/index', [ProjectController::class, 'index'])->name('project.index');
 Route::get('/projects/update', [ProjectController::class, 'update']);
 Route::get('/projects/delete', [ProjectController::class, 'delete']);
 

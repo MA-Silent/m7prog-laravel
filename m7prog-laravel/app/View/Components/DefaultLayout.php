@@ -12,6 +12,6 @@ class DefaultLayout extends Component
      */
     public function render(): View
     {
-        return view('layouts.default');
+        return view('layouts.project.default');
     }
 }

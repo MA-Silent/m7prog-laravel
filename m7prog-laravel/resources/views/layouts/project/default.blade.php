@@ -16,9 +16,11 @@
         </div>
     </header>
     <main class="flex items-center justify-center h-[calc(100%-7.5rem)]"><div class="flex w-[90%] h-full bg-slate-700 rounded-3xl px-2">{{ $slot }}</div></main>
-    <footer class="flex justify-evenly m-0 p-0">
+    {{-- <footer class="flex justify-evenly m-0 p-0">
     <x-nav-link :href="route('test')" :active="request()->routeIs('test')">{{ __('Test') }}</x-nav-link>
     <x-nav-link :href="route('about.index')" :active="request()->routeIs('about.index')">{{ __('About') }}</x-nav-link>
-    </footer>
+    </footer> --}}
+    @include('layouts.project.footer')
+    @include('layouts.project.scripts')
 </body>
 </html>
