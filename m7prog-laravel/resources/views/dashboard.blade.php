@@ -1,6 +1,5 @@
 <x-default-layout>
     <div>
-        <h2 class="text-IDK">Hello!!</h2>
-        <a href="/projects/index">Projects</a>
+        <a href="{{ route('projectadmin.index') }}">Admin index</a>
     </div>
 </x-default-layout>

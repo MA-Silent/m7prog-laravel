@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectAdminController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
@@ -11,20 +12,24 @@ Route::get('/', function () {
 
 Route::get('/projects/add',[ProjectController::class, 'create'])->name('projects.create');
 
-Route::get("/test", function() {
-    return view('test', ["greeting" => "Hhaskdj!"]);
-})->name('test');
-
 Route::get('/projects/index', [ProjectController::class, 'index'])->name('project.index');
 Route::get('/projects/update', [ProjectController::class, 'update']);
 Route::get('/projects/delete', [ProjectController::class, 'delete']);
 Route::get('/projects/{reqId}',[ProjectController::class, 'show'])->name('project.show');
 
-Route::get('/about', [AboutController::class, 'index'])->name('about.index');
+Route::prefix('/dashboard')->middleware(['auth', 'verified'])->group( function() {
+    Route::get('/', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    
+    Route::resources(
+        [
+            'projectadmin'=> ProjectAdminController::class,
+        ]
+    );
+});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
