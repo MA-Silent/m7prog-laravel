@@ -21,7 +21,7 @@ class ProjectAdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.create');
     }
 
     /**
@@ -29,7 +29,7 @@ class ProjectAdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dump($request->all());
     }
 
     /**

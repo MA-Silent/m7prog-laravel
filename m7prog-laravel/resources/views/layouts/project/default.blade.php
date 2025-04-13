@@ -17,7 +17,7 @@
             @endif
         </div>
     </header>
-    <main class="flex items-center justify-center h-[calc(100%-7.5rem)]"><div class="flex w-[90%] h-[100%] bg-slate-700 rounded-3xl px-2">{{ $slot }}</div></main>
+    <main class="flex items-center justify-center h-[calc(100%-7.5rem)]"><div class="flex w-[90%] h-[100%] bg-slate-700 rounded-3xl px-2 flex-col">{{ $slot }}</div></main>
     @include('layouts.project.footer')
     @include('layouts.project.scripts')
 </body>
