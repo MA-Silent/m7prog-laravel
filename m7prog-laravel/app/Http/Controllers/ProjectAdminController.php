@@ -29,7 +29,11 @@ class ProjectAdminController extends Controller
      */
     public function store(Request $request)
     {
-        dump($request->all());
+        $valid = $request->validate([
+            'title' => 'required|unique:projects|max:255',
+            'description' => 'required',
+        ]);
+        dd($valid);
     }
 
     /**

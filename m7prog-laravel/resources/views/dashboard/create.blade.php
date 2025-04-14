@@ -2,7 +2,7 @@
     <div class="mt-2 mx-2 py-3 font-bold bg-slate-500 rounded flex justify-center"><h1 class="text-orange-300 text-xl">Project creation</h1></div>
     <div class="flex flex-col justify-center items-center">
         <div class="w-[80%] rounded flex-shrink">
-            <form action="{{route('projectadmin.store')}}" method="POST">
+            <form action="{{route('projectadmin.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="space-y-12">
                   <div class="border-b border-neutral-300/10 pb-12">
@@ -13,7 +13,7 @@
                         <div class="mt-2">
                           <div class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-neutral-500 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
                             <div class="shrink-0 text-base text-gray-500 select-none sm:text-sm/6"></div>
-                            <input type="text" name="title" id="title" class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-black placeholder:text-gray-400 focus:outline-none sm:text-sm/6" placeholder="janesmith">
+                            <input type="text" name="title" id="title" value="{{old('title')}}" class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-black placeholder:text-gray-400 focus:outline-none sm:text-sm/6" placeholder="janesmith">
                           </div>
                         </div>
                       </div>
@@ -21,7 +21,7 @@
                       <div class="col-span-full">
                         <label for="description" class="block text-sm/6 font-medium text-white">Description</label>
                         <div class="mt-2">
-                          <textarea name="description" id="description" rows="3" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-neutral-500 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"></textarea>
+                          <textarea name="description" type="text" id="description" rows="3" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-neutral-500 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">{{old('description')}}</textarea>
                         </div>
                       </div>
               
@@ -46,6 +46,11 @@
                     </div>
                   </div>
     
+                  @if ($errors->any())
+                    <div class="p-2 bg-orange-500 border-2 rounded"><ul>@foreach ($errors->all() as $error)
+                      <li>{{$error}}</li>
+                    @endforeach</ul></div>
+                  @endif
                 <div class="mt-6 flex items-center justify-end gap-x-6">
                   <a class="cursor-pointer" href="{{URL::previous()}}"><button type="button" class="text-sm/6 font-semibold text-white cursor-pointer">Cancel</button></a>  
                   <button type="submit" class="cursor-pointer rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
