@@ -52,9 +52,9 @@ class ProjectAdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Project $project)
+    public function edit(Project $admin)
     {
-        //
+        return view('dashboard.edit', ['project'=>$admin]);
     }
 
     /**

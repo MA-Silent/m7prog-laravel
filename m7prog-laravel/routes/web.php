@@ -13,7 +13,7 @@ Route::get('/', function () {
 Route::get('/projects/add',[ProjectController::class, 'create'])->name('projects.create');
 
 Route::get('/projects/index', [ProjectController::class, 'index'])->name('project.index');
-Route::get('/projects/update', [ProjectController::class, 'update']);
+Route::get('/projects/update', [ProjectController::class, 'edit'])->name('project.edit');
 Route::get('/projects/delete', [ProjectController::class, 'delete']);
 Route::get('/projects/{reqId}',[ProjectController::class, 'show'])->name('project.show');
 
@@ -24,7 +24,7 @@ Route::prefix('/dashboard')->middleware(['auth', 'verified'])->group( function()
     
     Route::resources(
         [
-            'projectadmin'=> ProjectAdminController::class,
+            'admin'=> ProjectAdminController::class,
         ]
     );
 });

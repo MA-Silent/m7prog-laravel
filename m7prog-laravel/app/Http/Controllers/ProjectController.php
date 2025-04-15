@@ -23,7 +23,7 @@ class ProjectController extends Controller
         return view('index', ['projects' => $projects,"affected"=>0]);
     }
 
-    public function update(){
+    public function edit(){
         $affected = DB::update('UPDATE projects SET active = true WHERE id = ?',[0]);
         $projects = DB::select('SELECT * FROM projects');
         return view('index', ['projects' => $projects, "affected"=>$affected]);
