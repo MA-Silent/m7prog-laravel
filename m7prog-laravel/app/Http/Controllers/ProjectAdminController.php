@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use Illuminate\Validation\Rules\File;
 use Illuminate\Http\Request;
 
 class ProjectAdminController extends Controller
@@ -32,8 +33,12 @@ class ProjectAdminController extends Controller
         $valid = $request->validate([
             'title' => 'required|unique:projects|max:255',
             'description' => 'required',
+            'img' => File::image(),
         ]);
-        dd($valid);
+
+        $item = new Project($valid);
+        $item->save();
+        return redirect(route('project.show', $item->getKey()));
     }
 
     /**

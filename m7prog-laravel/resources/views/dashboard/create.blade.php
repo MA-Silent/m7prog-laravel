@@ -33,9 +33,9 @@
                               <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 0 1 2.25-2.25h16.5A2.25 2.25 0 0 1 22.5 6v12a2.25 2.25 0 0 1-2.25 2.25H3.75A2.25 2.25 0 0 1 1.5 18V6ZM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0 0 21 18v-1.94l-2.69-2.689a1.5 1.5 0 0 0-2.12 0l-.88.879.97.97a.75.75 0 1 1-1.06 1.06l-5.16-5.159a1.5 1.5 0 0 0-2.12 0L3 16.061Zm10.125-7.81a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Z" clip-rule="evenodd" />
                             </svg>
                             <div class="mt-4 flex text-sm/6 text-neutral-300">
-                              <label for="image" class="relative cursor-pointer rounded-md bg-white px-1 font-semibold text-indigo-600 focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 focus-within:outline-hidden hover:text-indigo-500">
+                              <label for="img" class="relative cursor-pointer rounded-md bg-white px-1 font-semibold text-indigo-600 focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 focus-within:outline-hidden hover:text-indigo-500">
                                 <span>Upload a file</span>
-                                <input id="image" name="image" type="file" class="sr-only">
+                                <input id="img" name="img" type="file" class="sr-only">
                               </label>
                               <p class="pl-1">or drag and drop</p>
                             </div>
