@@ -30,11 +30,7 @@ class ProjectAdminController extends Controller
      */
     public function store(Request $request)
     {
-        $valid = $request->validate([
-            'title' => 'required|unique:projects|max:255',
-            'description' => 'required',
-            'img' => File::image(),
-        ]);
+        $valid = $this->validate($request);
 
         $item = new Project($valid);
         $item->save();
@@ -60,9 +56,17 @@ class ProjectAdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Project $project)
+    public function update(Request $request, Project $admin)
     {
-        //
+        $valid = $request->validate([
+            'title' => 'required|max:255|unique:projects,id,'.$admin->id,
+            'description' => 'required',
+            'img' => File::image(),
+        ]);
+
+        $admin->update($valid);
+        $admin->save();
+        return redirect(route('project.show', $admin->getKey()));
     }
 
     /**
@@ -71,5 +75,15 @@ class ProjectAdminController extends Controller
     public function destroy(Project $project)
     {
         //
+    }
+
+    protected function validate(Request $request){
+        $valid = $request->validate([
+            'title' => 'required|max:255|unique:projects',
+            'description' => 'required',
+            'img' => File::image(),
+        ]);
+
+        return $valid;
     }
 }
